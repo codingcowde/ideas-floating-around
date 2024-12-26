@@ -30,7 +30,6 @@ def generate_combination(length:int) -> list:
         res[key] = value
         occupied_indizies.add(key)
     for value, false_indezies in correct_numbers.items():
-        print(f"{value}, {false_indezies}, {type(false_indezies)}")
         impossible_indizies = occupied_indizies.union(false_indezies)
         if last_index_trial := [a for a in range(0,length) if a not in impossible_indizies]:        
             res[last_index_trial[-1]]=value
@@ -56,7 +55,7 @@ while combination != last_guess:
     last_guess = trial
 end = time.time()
 
-print(f"The combination is [{''.join(last_guess)}] and it took {len(trials)} trials in {end-start} seconds.")
-print(f"Your input was {''.join(combination)}")
+print(f"The combination is [{last_guess}] and it took {len(trials)} trials in {end-start} seconds.")
+print(f"Your input was {combination}")
 
 
